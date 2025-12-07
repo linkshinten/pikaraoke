@@ -494,6 +494,7 @@ class Karaoke:
         enqueue: bool = False,
         user: str = "Pikaraoke",
         title: str | None = None,
+        semitones: int = 0,
     ) -> int:
         """Download a video from YouTube.
 
@@ -502,6 +503,7 @@ class Karaoke:
             enqueue: Whether to add to queue after download.
             user: Username to attribute the download to.
             title: Display title (defaults to URL if not provided).
+            semitones: Transpose offset applied if queued immediately.
 
         Returns:
             Return code from the download process (0 = success).
@@ -534,7 +536,7 @@ class Karaoke:
                 y = get_youtube_id_from_url(video_url)
                 s = self.find_song_by_youtube_id(y)
                 if s:
-                    self.enqueue(s, user, log_action=False)
+                    self.enqueue(s, user, semitones, log_action=False)
                 else:
                     # MSG: Message shown after the download is completed but the adding to queue fails
                     self.log_and_send(_("Error queueing song: ") + displayed_title, "danger")

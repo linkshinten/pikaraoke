@@ -199,7 +199,13 @@ def enqueue():
     else:
         d = request.form.to_dict()
         user = d["song-added-by"]
-    rc = k.enqueue(song, user)
+    if "song-semitones" in request.args:
+        semitones = request.args.get("song-semitones", 0)
+    else:
+        d = request.form.to_dict()
+        semitones = d.get("song-semitones", 0)
+    semitones = int(semitones) if semitones else 0
+    rc = k.enqueue(song, user, semitones)
     broadcast_event("queue_update")
     song_title = k.filename_from_path(song)
     return json.dumps({"song": song_title, "success": rc})

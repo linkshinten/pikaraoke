@@ -143,13 +143,14 @@ def download():
     song = d["song-url"]
     user = d["song-added-by"]
     title = d["song-title"]
+    semitones = int(d.get("song-semitones", 0))
     if "queue" in d and d["queue"] == "on":
         queue = True
     else:
         queue = False
 
     # download in the background since this can take a few minutes
-    t = threading.Thread(target=k.download_video, args=[song, queue, user, title])
+    t = threading.Thread(target=k.download_video, args=[song, queue, user, title, semitones])
     t.daemon = True
     t.start()
 
