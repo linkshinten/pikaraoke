@@ -1,10 +1,10 @@
-# PiKaraoke Fork for DIY PiKaraoke
+# PiKaraoke Fork for diy-pikaraoke
 
-This repository is a focused fork of [`vicwomg/pikaraoke`](https://github.com/vicwomg/pikaraoke). We adapt the karaoke server so it powers **DIY PiKaraoke**, a playful retro TUI with a vintage look that layers automation hooks and fresh UI flows on top of PiKaraoke.
+This repository is a focused fork of [`vicwomg/pikaraoke`](https://github.com/vicwomg/pikaraoke). We adapt the karaoke server so it powers [diy-pikaraoke](https://codeberg.org/diy-aftershow/diy-pikaraoke), a playful retro TUI with a vintage look that brings fresh UI flows to PiKaraoke.
 
 ## Why this fork?
 
-We needed a handful of adjustments so the server fits our requirements.
+We needed adjustments so the server fits our requirements:
 
 - Semitone offset in the API endpoints
 
