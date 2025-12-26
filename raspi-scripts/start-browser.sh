@@ -3,12 +3,12 @@ set -euo pipefail
 
 # Simple Chromium kiosk launcher for PiKaraoke splash screen
 # Optional environment variables:
-#   PIKARAOKE_URL             - URL to load (default: http://localhost:5555/splash)
+#   PIKARAOKE_URL             - URL to load (default: http://diy.local:5555/splash)
 #   PIKARAOKE_BROWSER         - Browser executable (default: chromium-browser or chromium fallback)
 #   PIKARAOKE_BROWSER_FLAGS   - Extra flags appended to the browser command
 #   PIKARAOKE_BROWSER_PROFILE - Directory for browser profile (default: /tmp/pikaraoke-browser)
 
-URL=${PIKARAOKE_URL:-http://localhost:5555/splash}
+URL=${PIKARAOKE_URL:-http://diy.local:5555/splash}
 BROWSER_DEFAULT=$(command -v chromium-browser >/dev/null 2>&1 && echo "chromium-browser" || echo "chromium")
 BROWSER=${PIKARAOKE_BROWSER:-$BROWSER_DEFAULT}
 PROFILE_DIR=${PIKARAOKE_BROWSER_PROFILE:-/tmp/pikaraoke-browser}
