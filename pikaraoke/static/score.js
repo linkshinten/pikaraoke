@@ -23,7 +23,12 @@ function getScoreData(scoreValue) {
 }
 
 // Function that creates a random score biased towards 99
-function getScoreValue() {
+function getScoreValue(customScores) {
+  if (customScores && customScores.length > 0) {
+    const randomIndex = Math.floor(Math.random() * customScores.length);
+    return customScores[randomIndex];
+  }
+
   const random = Math.random();
   const bias = 2; // adjust this value to control the bias
   const scoreValue = Math.pow(random, 1 / bias) * 99;
@@ -76,7 +81,7 @@ async function startScore(staticPath) {
   const scoreTextElement = $("#score-number-text");
   const scoreReviewElement = $("#score-review-text");
 
-  const scoreValue = getScoreValue();
+  const scoreValue = getScoreValue(scoreSequence);
   const drums = new Audio(staticPath + "sounds/score-drums.mp3");
 
   const scoreData = getScoreData(scoreValue);

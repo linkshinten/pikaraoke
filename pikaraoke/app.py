@@ -228,6 +228,7 @@ def main() -> None:
         bg_music_path=args.bg_music_path,
         bg_video_path=args.bg_video_path,
         disable_score=args.disable_score,
+        score_sequence=args.score_sequence,
         limit_user_songs_by=args.limit_user_songs_by,
         avsync=args.avsync,
         config_file_path=args.config_file_path,

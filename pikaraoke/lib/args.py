@@ -263,6 +263,13 @@ def parse_pikaraoke_args() -> argparse.Namespace:
         required=False,
     ),
     parser.add_argument(
+        "--score-sequence",
+        nargs="+",
+        help="Custom list of score values to randomly pick from when showing the score screen",
+        default=None,
+        required=False,
+    ),
+    parser.add_argument(
         "--limit-user-songs-by",
         help="Limit the number of songs a user can add to queue. User name 'Pikaraoke' is always unlimited (default: 0 = unlimited)",
         default="0",
@@ -295,6 +302,14 @@ def parse_pikaraoke_args() -> argparse.Namespace:
 
     limit_user_songs_by = int(args.limit_user_songs_by)
     args.limit_user_songs_by = limit_user_songs_by
+
+    if args.score_sequence:
+        try:
+            args.score_sequence = [int(value) for value in args.score_sequence]
+        except ValueError:
+            parser.error("All values for --score-sequence must be integers")
+    else:
+        args.score_sequence = []
 
     youtubedl_path = arg_path_parse(args.youtubedl_path)
     logo_path = arg_path_parse(args.logo_path)

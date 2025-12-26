@@ -51,6 +51,7 @@ def splash():
         disable_bg_music=k.disable_bg_music,
         disable_bg_video=k.disable_bg_video,
         disable_score=k.disable_score,
+        score_sequence=k.score_sequence,
         bg_music_volume=k.bg_music_volume,
         has_bg_video=k.bg_video_path is not None,
         schore_phrases={

@@ -138,6 +138,7 @@ class Karaoke:
         bg_video_path: str | None = None,
         disable_bg_video: bool = False,
         disable_score: bool = False,
+        score_sequence: list[int] | None = None,
         limit_user_songs_by: int = 0,
         avsync: float = 0,
         config_file_path: str = "config.ini",
@@ -172,6 +173,7 @@ class Karaoke:
             bg_video_path: Path to background video file.
             disable_bg_video: Disable background video.
             disable_score: Disable score screen.
+            score_sequence: Fixed list of scores for deterministic displays.
             limit_user_songs_by: Max songs per user in queue (0 = unlimited).
             avsync: Audio/video sync adjustment in seconds.
             config_file_path: Path to config.ini file.
@@ -227,6 +229,7 @@ class Karaoke:
         self.disable_bg_video = self.get_user_preference("disable_bg_video") or disable_bg_video
         self.bg_video_path = self.default_bg_video_path if bg_video_path == None else bg_video_path
         self.disable_score = self.get_user_preference("disable_score") or disable_score
+        self.score_sequence = score_sequence or []
         self.limit_user_songs_by = (
             self.get_user_preference("limit_user_songs_by") or limit_user_songs_by
         )

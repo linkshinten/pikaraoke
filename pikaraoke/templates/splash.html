@@ -53,6 +53,7 @@
   var volume = 0.85;
   var isScoreShown = false;
   var hasBgVideo = "{{ has_bg_video }}" == 'True'
+  var scoreSequence = JSON.parse('{{ score_sequence | tojson | safe }}');
 
   const scoreReviews = {
     low:[

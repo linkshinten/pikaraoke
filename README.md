@@ -7,6 +7,17 @@ This repository is a focused fork of [`vicwomg/pikaraoke`](https://github.com/vi
 We needed adjustments so the server fits our requirements:
 
 - Semitone offset in the API endpoints
+- Adjustable score display after songs (incl. deterministic sequences via `--score-sequence`)
+
+### Score sequences
+
+Optionally you can pass a fixed list of scores at startup. The splash screen animation will pick randomly from this list:
+
+```bash
+python -m pikaraoke.app --score-sequence 161 1312 100 99 1337
+```
+
+If the option is omitted or empty, the previous random behavior remains. The list must contain integer values.
 
 ## Relationship to diy-pikaraoke
 
