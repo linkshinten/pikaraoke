@@ -4,10 +4,11 @@ This repository is a focused fork of [`vicwomg/pikaraoke`](https://github.com/vi
 
 ## Why this fork?
 
-We needed adjustments so the server fits our requirements:
+We needed a handful of adjustments so the server fits our use case.
 
 - Semitone offset in the API endpoints
 - Adjustable score display after songs (incl. deterministic sequences via `--score-sequence`)
+- Custom raspberry pi startup scripts (see `raspi-scripts/`)
 
 ### Score sequences
 

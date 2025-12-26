@@ -1,0 +1,13 @@
+[Unit]
+Description=PiKaraoke Docker Server
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=%h/raspi-scripts/start-pikaraoke.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=PiKaraoke Chromium Splash
+After=pikaraoke-server.service
+Wants=pikaraoke-server.service
+
+[Service]
+Type=simple
+Environment="DISPLAY=:0"
+ExecStart=%h/raspi-scripts/start-browser.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
