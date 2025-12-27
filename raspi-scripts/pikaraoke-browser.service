@@ -7,7 +7,7 @@ Wants=pikaraoke-server.service
 Type=simple
 Environment="DISPLAY=:0"
 ExecStart=%h/raspi-scripts/start-browser.sh
-Restart=always
+Restart=on-failure
 RestartSec=5
 
 [Install]
